@@ -11,7 +11,7 @@ using MvcCoreTutorial.Models.Domain;
 namespace MvcCoreTutorial.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20221116095823_init")]
+    [Migration("20231212093140_init")]
     partial class init
     {
         /// <inheritdoc />
@@ -19,7 +19,7 @@ namespace MvcCoreTutorial.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "7.0.0")
+                .HasAnnotation("ProductVersion", "8.0.0")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -33,9 +33,11 @@ namespace MvcCoreTutorial.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Email")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
